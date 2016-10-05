@@ -1,0 +1,10 @@
+[user]
+	name = lindboe
+	email = lindboe@users.noreply.github.com
+[alias]
+	ff = merge --ff-only
+[color]
+        ui = auto
+[core]
+        editor = vim
+	excludesfile = ~/.gitignore
