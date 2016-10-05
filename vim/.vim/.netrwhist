@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/lizzi/dev/classifier/src/puppetlabs/classifier/http'
+let g:netrw_dirhist_2='/Users/lizzi/dev/classifier/src/puppetlabs/classifier/migrations'
+let g:netrw_dirhist_3='/Users/lizzi/dev/puppet-debugging-kit/lib/puppet_debugging_kit'
+let g:netrw_dirhist_4='/Users/lizzi/dev/pe-rbac-service/src/clj/puppetlabs/rbac/http/middleware'
+let g:netrw_dirhist_5='/Users/lizzi/projects/netrunner'
+let g:netrw_dirhist_6='/Users/lizzi/dev/pe-rbac-service/src/clj/puppetlabs/rbac/http/middleware'
+let g:netrw_dirhist_7='/Users/lizzi/dev/pe-rbac-service/src/clj/puppetlabs/rbac/migrations'
