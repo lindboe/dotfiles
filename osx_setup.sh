@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eof pipefail
 
-brew install git vim zsh-completions emacs
+brew install git vim zsh-completions emacs ripgrep
 # should I install zsh-completions as a plugin instead? maybe
 
 #configure zsh
