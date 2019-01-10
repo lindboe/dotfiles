@@ -28,6 +28,7 @@ touch ~/.config/terminator/config
 cp terminator/config ~/.config/terminator/config
 
 # configure vim
+cp vim/nopluginvimrc ~/.vimrc
 
 # add configuration for running GUI apps with x server on windows
 
