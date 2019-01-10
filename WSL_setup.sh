@@ -23,7 +23,9 @@ EOL
 fi
 
 # configure terminator
-# do I want anything in ~/.config/terminator/config
+mkdir -p ~/.config/terminator
+touch ~/.config/terminator/config
+cp terminator/config ~/.config/terminator/config
 
 # configure vim
 
