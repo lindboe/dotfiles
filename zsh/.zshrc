@@ -42,6 +42,7 @@ alias b="bundle exec"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
+export EDITOR="vim"
 
 source $ZSH/oh-my-zsh.sh
 
