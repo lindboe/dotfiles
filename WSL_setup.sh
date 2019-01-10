@@ -37,6 +37,10 @@ if [ ! -d ~/.emacs.d ]; then
   git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 
+# place gitconfig
+cp git/.gitconfig ~/.gitconfig
+cp git/.gitignore ~/.gitignore
+
 # set up git keys
 
 # install source code pro
