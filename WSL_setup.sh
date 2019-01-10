@@ -2,7 +2,7 @@
 set -efo pipefail
 shopt -s extglob
 
-sudo apt-get install git terminator emacs24 vim openjdk-8-jdk zsh fonts-powerline
+sudo apt-get update && sudo apt-get install git terminator emacs24 vim openjdk-8-jdk zsh fonts-powerline
 
 #configure zsh
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
