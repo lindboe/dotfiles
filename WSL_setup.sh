@@ -1,5 +1,6 @@
 #!/bin/bash
-set -eof pipefail
+set -efo pipefail
+shopt -s extglob
 
 sudo apt-get install git terminator emacs24 vim openjdk-8-jdk zsh fonts-powerline
 
@@ -34,3 +35,15 @@ if [ ! -d ~/.emacs.d ]; then
 fi
 
 # set up git keys
+
+# install source code pro
+wget https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip
+mkdir temp-fonts
+unzip -q 1.050R-it.zip -d temp-fonts
+# have to do this to allow the globbing
+set +f
+sudo cp temp-fonts/*/OTF/*.otf /usr/local/share/fonts
+set -f
+fc-cache -f
+rm 1.050R-it.zip
+rm -rf temp-fonts
