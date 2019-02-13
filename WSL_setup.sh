@@ -13,9 +13,14 @@ if [ "$SHELL" != "/usr/bin/zsh" ]; then
   # this is not what profile is meant for, but will launch a terminator instance
   # for me when I open Ubuntu on Windows with everything I want set, and only do
   # it once.
+  # Xsrv will start automatically, but it can't be exited automatically,
+  # remember to exit it if you want it gone. (See
+  # https://github.com/Microsoft/WSL/issues/1614; tried the "not the first
+  # windows process" hack suggested but it didn't change anything.)
   if [ ! -e ~/.zprofile ]; then
     echo "Configuring automatic start of terminator"
     cat > ~/.zprofile <<EOL
+"/mnt/c/Program Files/VcXsrv/xlaunch.exe" -run "C:/Users/Lizzi/Documents/config.xlaunch"
 export DISPLAY=:0
 terminator
 EOL
