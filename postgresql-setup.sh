@@ -11,7 +11,7 @@ log_config=$(cat <<EOM
 log_destination = 'stderr'
 logging_collector = off
 log_directory = '/var/log/postgresql'
-log_filename = 'postgresql-%Y-%m-%d.log
+log_filename = 'postgresql-%Y-%m-%d.log'
 log_file_mode = 0644
 log_rotation_age = 1440
 # can be set to ddl, mod, or all
