@@ -1,6 +1,14 @@
 #!/bin/bash
 set -eof pipefail
 
+# install xcode
+xcode-select --install
+
+# install homebrew
+if ! command -v brew ; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 brew install git vim zsh-completions emacs ripgrep
 # should I install zsh-completions as a plugin instead? maybe
 
