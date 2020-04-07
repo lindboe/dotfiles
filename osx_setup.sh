@@ -2,11 +2,11 @@
 set -eof pipefail
 
 # install xcode
-xcode-select --install
+# xcode-select --install
 
 # install homebrew
 if ! command -v brew ; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 brew install git vim zsh-completions emacs ripgrep
@@ -15,7 +15,13 @@ brew install git vim zsh-completions emacs ripgrep
 #configure zsh
 if [ "$SHELL" != "/bin/zsh" ]; then
   chsh -s $(which zsh)
+fi
+
+if [ ! -f ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+if [ ! -f ~/.zshrc ]; then
   cp ./zsh/.zshrc ~/.zshrc
   # install powerline fonts
   ./install.sh
