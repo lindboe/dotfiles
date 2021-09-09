@@ -11,6 +11,7 @@ ZSH_THEME="robbyrussell"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias b="bundle exec"
+alias rndbg='open "rndebugger://set-debugger-loc?host=localhost&port=8081"'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -43,9 +44,16 @@ alias b="bundle exec"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 export EDITOR="vim"
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/sbin
 export PATH
+
+eval "$(rbenv init -)"
