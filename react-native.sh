@@ -1,4 +1,5 @@
 sudo apt install -y nodejs
+npm i -g yarn
 npm i -g react-native-cli
 echo "Remember to install the JDK! I'm not doing that for you."
 echo "You might also want Android Studio and/or Expo."
