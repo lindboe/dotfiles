@@ -12,6 +12,10 @@ ZSH_THEME="robbyrussell"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias b="bundle exec"
 alias rndbg='open "rndebugger://set-debugger-loc?host=localhost&port=8081"'
+alias ashake="adb -d shell input keyevent 82"
+alias adev="adb reverse tcp:8081 tcp:8081"
+alias atron="adb reverse tcp:9090 tcp:9090"
+alias vsts="cd /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -52,8 +56,22 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 source $ZSH/oh-my-zsh.sh
 
+# zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # Customize to your needs...
-PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/sbin
+PATH_FOR_IDB=/Users/lizzilindboe/Library/Python/3.9/bin
+PATH=$PATH:$PATH_FOR_IDB:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/sbin
 export PATH
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+#rvm
 eval "$(rbenv init -)"
