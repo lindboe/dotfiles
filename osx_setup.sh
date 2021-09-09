@@ -28,6 +28,9 @@ if [ ! -f ~/.zshrc ]; then
   source ~/.zshrc
 fi
 
+# install rectangle
+brew install --cask rectangle
+
 # configure vim
 # this is forked up because the plugins didn't seem to follow. should probably
 # just clone a list of them anyways, but some like rainbow parens were
