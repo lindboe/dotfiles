@@ -54,3 +54,6 @@ if [ ! -d ~/.emacs.d ]; then
 fi
 
 # set up git keys
+
+# Copy over iterm prefs
+cp iTermPref/com.googlecode.iterm2.plist ~/Library/Preferences/.
