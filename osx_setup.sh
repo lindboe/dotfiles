@@ -9,7 +9,12 @@ if ! command -v brew ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/lizzi/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 brew install git vim zsh-completions emacs ripgrep
+./install_rbenv.sh
+./install_nvm.sh
 # should I install zsh-completions as a plugin instead? maybe
 
 #configure zsh
@@ -20,6 +25,9 @@ fi
 if [ ! -f ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
+
+chmod -R go-w '/opt/homebrew/share'
+chmod -R go-w '/opt/homebrew/share/zsh'
 
 if [ ! -f ~/.zshrc ]; then
   cp ./zsh/.zshrc ~/.zshrc
