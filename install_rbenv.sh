@@ -4,7 +4,9 @@ set -eof pipefail
 ## install rbenv
 brew install rbenv
 
-echo "run `rbenv init`, then `rbenv doctor` to check installation is correct."
+# Checking installation
+rbenv init
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
 
 echo "find verisons to install with `rbenv install -l`"
 echo "set your version with `rbenv global/local <version>`"
