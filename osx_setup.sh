@@ -53,6 +53,9 @@ if [ ! -d ~/.emacs.d ]; then
   git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 
+# configure git
+cp git/.gitconfig_osx ~/.gitconfig
+
 # set up git keys
 
 # Copy over iterm prefs
