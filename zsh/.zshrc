@@ -46,6 +46,8 @@ function usingport() {
 function as() {
   open -a /Applications/Android\ Studio.app $1
 }
+# For Xcode, open <PROJECT>.xcworkspace
+# For VS Code, `code .` in desired directory
 
 # Given a number, get that amount of currently available ports
 getPorts() {
