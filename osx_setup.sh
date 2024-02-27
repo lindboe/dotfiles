@@ -51,7 +51,7 @@ if [ ! -d ~/.emacs.d ]; then
 fi
 
 # configure git
-cp git/.gitconfig_osx ~/.gitconfig
+cp git/.gitconfig ~/.gitconfig
 
 # set up git keys
 
