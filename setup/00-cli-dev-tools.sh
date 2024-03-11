@@ -6,5 +6,3 @@ set -eof pipefail
 # a different exit code when it's a real install failure. Giving it its own
 # script so I can just manually intervene as needed.
 xcode-select --install
-
-
