@@ -21,7 +21,7 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Don't use "natural" scrolling
-defaults write -g com.apple.swipescrolldirection -int 0
+defaults write -g com.apple.swipescrolldirection -int 1
 
 # Don't show recent apps in Dock
 defaults write com.apple.dock "show-recents" -bool "false"
@@ -33,7 +33,7 @@ killall Dock
 # Set initial key repeat delay to shortest normal setting
 defaults write -g InitialKeyRepeat -int 10
 # Set key repeat to faster than GUI allows
-defaults write -g KeyRepeat -int 1
+defaults write -g KeyRepeat -int 2
 
 # TODO: Consider the following...
 # defaults write -g AppleDisplayScaleFactor -float ...
