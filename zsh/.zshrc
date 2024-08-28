@@ -29,6 +29,8 @@ alias watchport="sudo tcpdump -i any port"
 alias emyphone="npx expo run:android --device SM_G991U1"
 # Look through all commits by me
 alias mygitlog="git log -p --branches --author=\"lindboe\""
+alias simdata="~/Library/Developer/CoreSimulator/Devices"
+alias updatemaestro="curl -Ls \"https://get.maestro.mobile.dev\" | bash"
 
 # Find branches containing provided commit SHA
 function findbranch () {
@@ -110,9 +112,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-source $ZSH/oh-my-zsh.sh
-
 # zsh-completions
+# must go before sourcing oh-my-zsh
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
@@ -120,21 +121,43 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+source $ZSH/oh-my-zsh.sh
+
 PATH_FOR_IDB=/Users/lizzilindboe/Library/Python/3.9/bin
 PATH=$PATH:$PATH_FOR_IDB:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/sbin
 export PATH
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# auto-use nvm if applicable
+autoload -U add-zsh-hook
 
-#rvm
-eval "$(rbenv init -)"
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # Why did I do this? Who knows
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# maestro
+export PATH=$PATH:$HOME/.maestro/bin

@@ -14,11 +14,6 @@ brew install git vim zsh-completions emacs ripgrep
 ./install_nvm.sh
 # should I install zsh-completions as a plugin instead? maybe
 
-#configure zsh
-if [ "$SHELL" != "/bin/zsh" ]; then
-  chsh -s $(which zsh)
-fi
-
 if [ ! -f ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
