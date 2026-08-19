@@ -6,9 +6,6 @@ if ! command -v brew ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/lizzi/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 brew install git vim zsh-completions emacs ripgrep
 ./install_rbenv.sh
 ./install_nvm.sh
