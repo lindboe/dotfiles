@@ -18,9 +18,9 @@ alias ashake="adb -d shell input keyevent 82"
 # Trigger shake event on Android emulator
 alias eshake="adb shell input keyevent 82"
 # Make port 8081 available for Android dev on device
-alias adev="adb reverse tcp:8081 tcp:8081"
+alias adev="adb -d reverse tcp:8081 tcp:8081"
 # Make port 9090 available for Reactotron on Android device
-alias atron="adb reverse tcp:9090 tcp:9090"
+alias atron="adb -d reverse tcp:9090 tcp:9090"
 # Open VS Code TS configuration file to edit to stop TS errors from being truncated
 alias vsts="cd /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib"
 # Watch port for activity
