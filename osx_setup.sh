@@ -52,3 +52,12 @@ cp git/.gitconfig ~/.gitconfig
 
 # Copy over iterm prefs
 cp iTermPref/com.googlecode.iterm2.plist ~/Library/Preferences/.
+
+# configure jenv/JDK
+# requires zshrc in place
+brew install jenv
+brew install --cask zulu@17
+eval "$(jenv init -)"
+jenv enable-plugin export
+exec $SHELL -l
+jenv add /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
