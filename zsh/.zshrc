@@ -123,10 +123,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-PATH_FOR_IDB=/Users/lizzilindboe/Library/Python/3.9/bin
-PATH=$PATH:$PATH_FOR_IDB:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/sbin
-export PATH
-
 # auto-use nvm if applicable
 autoload -U add-zsh-hook
 
