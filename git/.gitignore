@@ -1,2 +1,4 @@
-*.sw?
-*.sh
+*.sw*
+!*.swift
+
+**/.claude/settings.local.json

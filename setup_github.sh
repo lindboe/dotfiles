@@ -1,10 +1,10 @@
 #!/bin/bash
-set -eof pipefail
+set -eo pipefail
 
 echo 'Generating new SSH key'
 # Generate key in default location, will prompt for passphrase, choose to save it in keychain
 read -p 'Email for SSH key: ' email
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C $email
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "$email"
 
 # Start SSH agent
 eval "$(ssh-agent -s)"

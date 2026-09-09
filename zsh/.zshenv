@@ -1,9 +1,15 @@
+# Runs for ALL zsh shells, including non-interactive ones (remote agent/Claude
+# ssh sessions), so everything such sessions need on PATH goes here.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/usr/local/bin:$PATH"
 
-# Full rbenv init not necessary for non-interactive shells
+# Full rbenv init not necessary for non-interactive shells. Admin accounts
+# only; harmless no-op where ~/.rbenv doesn't exist (agent accounts).
 # https://github.com/rbenv/rbenv/issues/1508#issuecomment-1600531709
 export PATH="$HOME/.rbenv/shims:${PATH}"
+
+# Same trick for jenv, so non-interactive shells resolve java
+export PATH="$HOME/.jenv/shims:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
