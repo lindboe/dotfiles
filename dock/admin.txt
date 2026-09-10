@@ -1,0 +1,14 @@
+clue-mac
+Kiwi for Gmail
+Firefox
+Slack
+Notion
+iTerm
+Visual Studio Code
+Android Studio
+Xcode
+Simulator
+Discord
+Google Chrome
+Activity Monitor
+System Settings

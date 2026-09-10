@@ -5,7 +5,14 @@
 	user = lindboe
 [push]
 	default = simple
+	autoSetupRemote = true
 [credential]
 	helper = osxkeychain
 [core]
 	excludesfile = ~/.gitignore
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[pull]
+	ff = only

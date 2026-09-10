@@ -1,0 +1,7 @@
+# Admin-only shell extras, installed to ~/.zshrc.local by scripts/admin/zsh-admin.sh
+# (sourced at the end of the shared .zshrc)
+
+alias b="bundle exec"
+
+# Watch port for activity (tcpdump needs root, so admin accounts only)
+alias watchport="sudo tcpdump -i any port"

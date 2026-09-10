@@ -3,15 +3,9 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias b="bundle exec"
-# Open React Native Debubgger
+# Open React Native Debugger
 alias rndbg='open "rndebugger://set-debugger-loc?host=localhost&port=8081"'
 # Trigger shake event on Android device
 alias ashake="adb -d shell input keyevent 82"
@@ -21,12 +15,6 @@ alias eshake="adb shell input keyevent 82"
 alias adev="adb -d reverse tcp:8081 tcp:8081"
 # Make port 9090 available for Reactotron on Android device
 alias atron="adb -d reverse tcp:9090 tcp:9090"
-# Open VS Code TS configuration file to edit to stop TS errors from being truncated
-alias vsts="cd /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib"
-# Watch port for activity
-alias watchport="sudo tcpdump -i any port"
-# Run Expo on my Android device
-alias emyphone="npx expo run:android --device SM_G991U1"
 # Look through all commits by me
 alias mygitlog="git log -p --branches --author=\"lindboe\""
 alias simdata="~/Library/Developer/CoreSimulator/Devices"
@@ -34,12 +22,13 @@ alias updatemaestro="curl -Ls \"https://get.maestro.mobile.dev\" | bash"
 
 # Find branches containing provided commit SHA
 function findbranch () {
-  git branch -a --contains :$1
+  git branch -a --contains $1
 }
 
-# Find if anything is using the given port
+# Find if anything is using the given port (without sudo this only sees your
+# own processes, which non-admin accounts have to live with anyway)
 function usingport() {
-  sudo lsof -i :$1
+  lsof -i :$1
   code=$?
   [ $code -eq 1 ] && echo "No matches found"
 }
@@ -73,43 +62,13 @@ getPorts() {
     return 1
 }
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
+
 export EDITOR="vim"
 export ANDROID_HOME=~/Library/Android/sdk
-export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # zsh-completions
@@ -148,12 +107,12 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# Why did I do this? Who knows
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
+# jenv (installed via brew; shims PATH for non-interactive shells is in .zshenv)
 eval "$(jenv init -)"
 
 # maestro
 export PATH=$PATH:$HOME/.maestro/bin
+
+# Account-specific extras: admin setup installs one (sudo-dependent functions
+# etc.); also the place for per-machine tweaks that shouldn't be in the repo
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
