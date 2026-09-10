@@ -9,6 +9,9 @@ cd "$(dirname "$0")"
 
 ./scripts/admin/xcode-cli-tools.sh
 ./scripts/admin/homebrew.sh
+# A fresh brew install happens in a child process and can't put brew on this
+# shell's PATH; future shells get it from .zshenv
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ./scripts/admin/brew-packages.sh
 ./scripts/admin/zsh-admin.sh
 
@@ -17,5 +20,6 @@ cd "$(dirname "$0")"
 # setup-user.sh applied the agent dock list; replace it with the full one
 ./scripts/user/dock-apps.sh dock/admin.txt
 
-# Interactive (SSH key passphrase + adding the key on github.com), so it goes last
-./setup_github.sh
+echo ""
+echo "Admin setup complete."
+echo "Next: run ./setup_github.sh to generate this machine's SSH key and add it to GitHub."
