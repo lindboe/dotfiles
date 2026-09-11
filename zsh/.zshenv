@@ -3,6 +3,9 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/usr/local/bin:$PATH"
 
+# User-local executables (e.g. the maacs link from `node cli/setup.mjs`)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Full rbenv init not necessary for non-interactive shells. Admin accounts
 # only; harmless no-op where ~/.rbenv doesn't exist (agent accounts).
 # https://github.com/rbenv/rbenv/issues/1508#issuecomment-1600531709
