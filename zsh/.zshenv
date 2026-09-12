@@ -17,3 +17,7 @@ export PATH="$HOME/.jenv/shims:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# corepack (enabled per nvm node in scripts/user/nvm.sh) supplies pnpm/yarn at the
+# version a project pins. Download them without asking, so non-interactive shells stay quiet.
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0

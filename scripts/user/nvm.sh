@@ -14,3 +14,7 @@ set -e
 
 # Install a default node so one exists before any .nvmrc auto-switching kicks in
 nvm install --lts
+
+# Package managers come from corepack, not brew or npm -g. The shims live inside each
+# nvm node version, so re-run this after `nvm install <version>`.
+corepack enable
