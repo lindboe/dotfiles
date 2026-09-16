@@ -13,6 +13,7 @@ PLUGINS=(
   https://github.com/godlygeek/tabular
   https://github.com/tpope/vim-surround
   https://github.com/bkad/CamelCaseMotion
+  https://github.com/prettier/vim-prettier
 )
 
 PACK_DIR="$HOME/.vim/pack/plugins/start"
@@ -27,6 +28,14 @@ for url in "${PLUGINS[@]}"; do
     git clone "$url" "$PACK_DIR/$name"
   fi
 done
+
+# vim-prettier bundles its own prettier as an npm dependency; install it so
+# :Prettier works even in projects without a local prettier
+if command -v npm >/dev/null; then
+  (cd "$PACK_DIR/vim-prettier" && npm install --omit=dev)
+else
+  echo "npm not found; skipping vim-prettier's bundled prettier install"
+fi
 
 cp vim/.vimrc ~/.vimrc
 
