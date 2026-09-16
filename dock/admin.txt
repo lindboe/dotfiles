@@ -7,7 +7,7 @@ iTerm
 Visual Studio Code
 Android Studio
 Xcode
-Simulator
+DeviceHub
 Discord
 Google Chrome
 Activity Monitor

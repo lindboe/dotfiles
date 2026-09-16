@@ -15,6 +15,7 @@ APP_PATHS=(
   "/Applications"
   "/System/Applications"
   "/System/Applications/Utilities"
+  "/Applications/Xcode.app/Contents/Applications"
   "$HOME/Applications"
 )
 
