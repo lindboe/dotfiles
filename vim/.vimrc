@@ -25,6 +25,11 @@ map <silent> <leader>ge <Plug>CamelCaseMotion_ge
 omap <silent> i<leader>w <Plug>CamelCaseMotion_iw
 xmap <silent> i<leader>w <Plug>CamelCaseMotion_iw
 
+" vim-prettier: format on save, but only in projects with a prettier config
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#autoformat_config_present = 1
+
 highlight default link EndOfLineSpace ErrorMsg
 match EndOfLineSpace / \+$/
 autocmd InsertEnter * hi link EndOfLineSpace Normal
